@@ -51,6 +51,13 @@ class Animal {
 		bool compareTo(Animal&);
 		bool compareTo(Animal*);
 
+		// Operators
+		Animal& operator++();
+		Animal& operator++(int);
+    Animal& operator--();
+    Animal& operator--(int);
+		bool operator==(const Animal&);
+
 };
 
 #endif

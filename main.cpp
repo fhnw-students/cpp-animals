@@ -33,8 +33,13 @@ int main() {
 	animals[0] = Animal(35, 13, 2, "tom");
 	animals[1] = Animal(23, 54, 3, "balou");
 	animals[2] = Animal(45, 23, 4, "max");
-	animals[3] = Animal(12, 34, 6, "timon");
-	animals[4] = Animal(55, 14, 6, "pumba");
+
+	Animal timon(12, 34, 6, "timon");
+	Animal pumba(55, 14, 6, "pumba");
+
+	animals[3] = timon;
+	animals[4] = pumba;
+
 
 	Dog bello(35, 13, 2, "bello", "wuff");
 	Dog fifi(23, 54, 3, "fifi", "wau");
@@ -55,6 +60,11 @@ int main() {
 		ap->getClass();
 		ap++;
 	}
+
+	cout << "Does Timons and Pumba have the same age? " << (timon == pumba)  << endl;
+	cout << "Does Garfield and Pumba have the same age? " << (garfield == pumba)  << endl;
+	timon++;
+	cout << "Does Timons and Pumba have the same age? " << (timon == pumba)  << endl;
 
 	// everything went successful
 	return 0;

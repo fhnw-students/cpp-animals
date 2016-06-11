@@ -37,3 +37,27 @@ bool Animal::compareTo(Animal& animal){
 bool Animal::compareTo(Animal* ap){
 	return this->age == ap->getAge();
 }
+
+Animal& Animal::operator++(){
+	this->age++;
+	return *this;
+}
+
+Animal& Animal::operator--(){
+	this->age--;
+	return *this;
+}
+
+Animal& Animal::operator++(int){
+	this->age++;
+	return *this;
+}
+
+Animal& Animal::operator--(int){
+	this->age--;
+	return *this;
+}
+
+bool Animal::operator==(const Animal& animal){
+	return this->age == animal.age;
+}
