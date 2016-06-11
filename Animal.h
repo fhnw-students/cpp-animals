@@ -41,6 +41,7 @@ class Animal {
 
 		// Constructors & Destructor
 		Animal(int, int, int, string);
+		Animal(string);
 		~Animal();
 		Animal();
 
@@ -48,6 +49,8 @@ class Animal {
 
 		// Prototypes
 		void toString();
+		string toJson();
+		string toStringArray();
 		bool compareTo(Animal&);
 		bool compareTo(Animal*);
 

@@ -66,6 +66,34 @@ int main() {
 	timon++;
 	cout << "Does Timons and Pumba have the same age? " << (timon == pumba)  << endl;
 
+	// Streams
+	// File schreiben
+	ofstream writer("animals.txt");
+	if(!writer){
+		cout << "Error opening file" << endl;
+		return -1;
+	} else{
+		writer << garfield.toStringArray() << endl;
+		writer.close();
+	}
+
+	// File lesen
+	char letter;
+	ifstream reader("animals.txt");
+	if(!reader){
+		cout << "Error opening file" << endl;
+		return -1;
+	}else{
+		string line;
+		for (int i = 0; !reader.eof(); i++){
+			reader.get(letter);
+			line += letter;
+		}
+		Animal fileLine(line);
+		fileLine.toString();
+		reader.close();
+	}
+
 	// everything went successful
 	return 0;
 }

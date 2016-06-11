@@ -24,6 +24,34 @@ Animal::Animal(){
 	Animal::numOfAnimals++;
 }
 
+Animal::Animal(string s){
+	char delemiter = ',';
+	string tmp;
+	int step = 0;
+	for (int i = 0; i < s.length(); i++){
+		if(s[i] == delemiter){
+			switch (step){
+				case 0:
+					this->name = tmp;
+					break;
+				case 1:
+					this->age = stoi(tmp);
+					break;
+				case 2:
+					this->weight = stoi(tmp);
+					break;
+				case 3:
+					this->height = stoi(tmp);
+					break;
+			}
+			step++;
+			tmp = "";
+		}else{
+			tmp += s[i];
+		}
+	}
+}
+
 void Animal::toString(){
 	cout << this->name << " is " << this->height << " cms tall,  " << this->weight << " kgs in weight and " <<
 		this->age << " years old" << endl;
@@ -60,4 +88,19 @@ Animal& Animal::operator--(int){
 
 bool Animal::operator==(const Animal& animal){
 	return this->age == animal.age;
+}
+
+string Animal::toJson(){
+	return "{\"name\": \"" + this->name +  "\", " +
+	"\"age\": \"" + to_string(this->age) +  "\", " +
+	"\"weight\": \"" + to_string(this->weight) +  "\", " +
+	"\"height\": \"" + to_string(this->height) +
+	"\"}";
+}
+
+string Animal::toStringArray(){
+	return this->name + "," +
+		to_string(this->age) + "," +
+		to_string(this->weight) + "," +
+		to_string(this->height);
 }
