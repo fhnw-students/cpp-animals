@@ -20,5 +20,7 @@ class Dog: public Animal {
 		}
 
 		Dog() : Animal() {};
+		Dog(int, int, int, string, string);
 
+		void toString();
 };

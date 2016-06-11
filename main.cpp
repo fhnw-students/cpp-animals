@@ -32,17 +32,16 @@ int main() {
 	animals[3] = Animal(12, 34, 6, "timon");
 	animals[4] = Animal(55, 14, 6, "pumba");
 
-	// animals[5] = Dog(35, 13, 2, "tom");
+	animals[5] = Dog(35, 13, 2, "tom", "wuff");
 	// animals[6] = Animal(23, 54, 3, "balou");
 	// animals[7] = Animal(45, 23, 4, "max");
 	// animals[8] = Animal(12, 34, 6, "timon");
 	// animals[9] = Animal(55, 14, 6, "pumba");
 
-	Dog d1();
 
 	Animal *ap = animals;
 	cout << "We have this num of animals " << sizeof(animals) << endl;
-	for (size_t i = 0; i < 5; i++){
+	for (size_t i = 0; i < 6; i++){
 		ap->toString();
 		ap->getClass();
 		ap++;

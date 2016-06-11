@@ -25,7 +25,8 @@ Animal::Animal(){
 }
 
 void Animal::toString(){
-	cout << this->name << " is " << this->height << " cms tall and  " << this->weight << " kgs in weight" << endl;
+	cout << this->name << " is " << this->height << " cms tall,  " << this->weight << " kgs in weight and " <<
+		this-age << "years old" << endl;
 }
 
 bool Animal::compareTo(Animal& animal){
