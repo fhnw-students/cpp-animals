@@ -108,8 +108,20 @@ int main() {
 		reader.close();
 	}
 
-
-
+	// FStream Line
+	fstream f("animals.txt");
+  string line;
+  if (f.is_open()) {
+		while (getline(f, line)){
+			cout << line << endl;
+		}
+		f.close();
+	} else {
+		cout << "Unable to open file" << endl;
+	}
+	cout << "This is my f*** line " << line << endl;
+	Animal fileLineB(line);
+	fileLineB.toString();
 
 	// everything went successful
 	return 0;
