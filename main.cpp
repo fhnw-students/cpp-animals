@@ -67,17 +67,31 @@ int main() {
 	cout << "Does Timons and Pumba have the same age? " << (timon == pumba)  << endl;
 
 	// Streams
-	// File schreiben
+	// 	Mode Flag	Description
+	// ios::app	Append mode. All output to that file to be appended to the end.
+	// ios::ate	Open a file for output and move the read/write control to the end of the file.
+	// ios::in	Open a file for reading.
+	// ios::out	Open a file for writing.
+	// ios::trunc	If the file already exists, its contents will be truncated before opening the file.
+
+	// File schreiben (fstream works too)
 	ofstream writer("animals.txt");
 	if(!writer){
 		cout << "Error opening file" << endl;
 		return -1;
 	} else{
-		writer << garfield.toStringArray() << endl;
+		// direct way
+		//writer << garfield.toStringArray() << endl;
+		// long way
+		string row = garfield.toStringArray();
+		const char *cstr = row.c_str();
+		for (int i = 0; i < row.length(); i++){
+			writer.put(*(cstr + i));
+		}
 		writer.close();
 	}
 
-	// File lesen
+	// File lesen (fstream works too)
 	char letter;
 	ifstream reader("animals.txt");
 	if(!reader){
@@ -93,6 +107,9 @@ int main() {
 		fileLine.toString();
 		reader.close();
 	}
+
+
+
 
 	// everything went successful
 	return 0;
