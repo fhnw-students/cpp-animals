@@ -36,11 +36,17 @@ int main() {
 	animals[3] = Animal(12, 34, 6, "timon");
 	animals[4] = Animal(55, 14, 6, "pumba");
 
-	animals[5] = Dog(35, 13, 2, "bello", "wuff");
-	animals[6] = Dog(23, 54, 3, "fifi", "wau");
-	animals[7] = Cat(45, 23, 4, "garfield", "lasagne");
-	animals[8] = Cat(12, 34, 6, "ella", "meow");
-	animals[9] = Cat(55, 14, 6, "mizzi", "mau");
+	Dog bello(35, 13, 2, "bello", "wuff");
+	Dog fifi(23, 54, 3, "fifi", "wau");
+	Cat garfield(45, 23, 4, "garfield", "lasagne");
+	Cat ella(12, 34, 6, "ella", "meow");
+	Cat mizzi(55, 14, 6, "mizzi", "mau");
+
+	animals[5] = bello;
+	animals[6] = fifi;
+	animals[7] = garfield;
+	animals[8] = ella;
+	animals[9] = mizzi;
 
 	Animal *ap = animals;
 	cout << "We have this num of animals " << sizeof(animals) << endl;
