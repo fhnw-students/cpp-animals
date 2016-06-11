@@ -4,4 +4,3 @@
 #include <fstream>
 
 #include "Dog.h"
-

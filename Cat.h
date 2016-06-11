@@ -9,12 +9,16 @@ using namespace std;
 
 class Cat: public Animal {
 	private:
+		string sound;
 
 	public:
 		void getClass(){
 			cout << "I'm a Cat" << endl;
 		}
 		void makeSound(){
-			cout << "The Cat says meow" << endl;
+			cout << "The Dog says " << this->sound << endl;
 		}
+
+		Cat() : Animal() {};
+
 };
