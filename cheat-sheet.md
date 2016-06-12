@@ -27,31 +27,22 @@ using namespace std;
 
 ####Pointers & References
 ```c++
-void makeMeYoung(int* age){
- cout << "I use to be " << *age << endl;
- *age = 18;
-}
-
-void actYourAge(int& age){
-    age = 28;
-}
+void makeMeYoung(int* age){ *age = 18; }
+void actYourAge(int& age){ age = 28; }
 
 int main() {
 	int myAge = 28;
 	int* agePtr = &myAge;
 	cout << "Addreess of the pointer: " << agePtr << endl;
 	cout << "Data at memory: " << *agePtr << endl;
-	
 	int* badNumPtr = badNums;
 	cout << "Addreess : " << badNumPtr << endl;
 	cout << "Value : " << *badNumPtr << endl;
 	badNumPtr++;
 	cout << "Addreess : " << badNumPtr << endl;
 	cout << "Value : " << *badNumPtr << endl;
-	
 	makeMeYoung(&myAge);
 	cout << "Now I am " << *agePtr << endl;
-	
 	int& myAgeRef = myAge;
 	cout << "my age is " << myAge << endl;
 	myAgeRef++;
@@ -63,9 +54,7 @@ int main() {
 
 ```c++
 const char *cstr = row.c_str();
-for (int i = 0; i < row.length(); i++){
-	writer.put(*(cstr + i));
-}
+for (int i = 0; i < row.length(); i++){ writer.put(*(cstr + i)); }
 ```
 
 __Output__
@@ -94,9 +83,7 @@ my age is 28
 
 // instead of class you can use typename
 template <class T>
-void output(const T & n){
- cout << n << endl;
-}
+void output(const T & n){ cout << n << endl; }
 
 template <class T>
 void swapThis(T & a, T & b){
@@ -115,14 +102,10 @@ class A {
 };
 
 template <class T>
-A<T>::A(const T& init){
-	data = init;
-}
+A<T>::A(const T& init){ data = init; }
 
 template <class T>
-void A<T>::output(){
-	cout << data << endl;
-}
+void A<T>::output(){ cout << data << endl; }
 
 int main() {
 	// Functions
@@ -133,9 +116,7 @@ int main() {
 
 	int array[5] = { 1,3,5,7,9 };
 	swapThis(array[1], array[3]);
-	for(int i=0; i < 5; i++){
-		cout << array[i] << endl;
-	}
+	for(int i=0; i < 5; i++){ cout << array[i] << endl; }
 
 	// Classes
 	A<int> number(5);
@@ -170,9 +151,7 @@ if(!writer){
 	// long way
 	string row = garfield.toStringArray();
 	const char *cstr = row.c_str();
-	for (int i = 0; i < row.length(); i++){
-		writer.put(*(cstr + i));
-	}
+	for (int i = 0; i < row.length(); i++){ writer.put(*(cstr + i)); }
 	writer.close();
 }
 
@@ -197,9 +176,7 @@ if(!reader){
 fstream f("animals.txt");
 string line;
 if (f.is_open()) {
-	while (getline(f, line)){
-		cout << line << endl;
-	}
+	while (getline(f, line)){ cout << line << endl; }
 	f.close();
 } else {
 	cout << "Unable to open file" << endl;
@@ -216,8 +193,6 @@ fileLineB.toString();
 #include <string>
 #include <iostream>
 #include <fstream>
-
-using namespace std;
 
 int main(){
 	FILE* fPointer;
@@ -262,7 +237,6 @@ int main(){
 }
 ```
 
-
 ###STL
 ####Iterators, list and vectors
 ```c++
@@ -273,28 +247,25 @@ int main(){
 #include <map>
 #include <algorithm>
 
-using namespace std;
-
 int main(){
-
 	vector<int> vec;
 	vec.push_back(21);
 	vec.push_back(7);
 	vec.push_back(14);
-
-	vector<int>::iterator itrBegin = vec.begin();
+	// Iterators
+	vector<int>::iterator itrBeg = vec.begin();
 	vector<int>::iterator itrEnd = vec.end();
 
-	for (vector<int>::iterator itrLoop = itrBegin; itrLoop != itrEnd; itrLoop++){
+	for (vector<int>::iterator itrLoop = itrBeg; itrLoop != itrEnd; itrLoop++){
 		cout << *itrLoop << endl;
 	}
 	//21 7 14
 
 	list<int> integer_list;
-	integer_list.push_front(1);
-	integer_list.push_front(2);
-	integer_list.push_front(3);
-	for(list<int>::iterator list_iter = integer_list.begin(); list_iter != integer_list.end(); list_iter++){
+	int_list.push_front(1);
+	int_list.push_front(2);
+	int_list.push_front(3);
+	for(list<int>::iterator list_iter = int_list.begin(); list_iter != int_list.end(); list_iter++){
     cout << *list_iter << endl;
 	}
 	// 3 2 1
@@ -302,10 +273,6 @@ int main(){
 	return 0;
 }
 ```
-
-
-
-
 
 ####Classes
 __Animal.h__
@@ -316,8 +283,6 @@ __Animal.h__
 #include <string>
 #include <fstream>
 
-using namespace std;
-
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
@@ -327,9 +292,7 @@ class Animal {
 		int height;
 		int weight;
 		string name;
-
 		static int numOfAnimals;
-
 	public:
 		int getHeight(){ return this->height; }
 		int getWeight(){ return this->weight; }
@@ -340,17 +303,9 @@ class Animal {
 		void setAge(int year){ age = year; };
 		void setName(string animalName){ name = animalName; };
 
-		void getFamily() {
-			cout << "We are animals" << endl;
-		}
-
-		virtual void getClass(){
-			cout << "I'm an animal" << endl;
-		}
-
-		virtual void makeSound(){
-			cout << "The Animal says grr" << endl;
-		}
+		void getFamily() { cout << "We are animals" << endl; }
+		virtual void getClass(){ cout << "I'm an animal" << endl; }
+		virtual void makeSound(){ cout << "The Animal says grr" << endl; }
 
 		// Constructors & Destructor
 		Animal(int, int, int, string);
@@ -370,10 +325,9 @@ class Animal {
 		// Operators
 		Animal& operator++();
 		Animal& operator++(int);
-    Animal& operator--();
-    Animal& operator--(int);
+    	Animal& operator--();
+    	Animal& operator--(int);
 		bool operator==(const Animal&);
-
 };
 
 #endif
@@ -399,9 +353,7 @@ Animal::~Animal(){
 	Animal::numOfAnimals--;
 }
 
-Animal::Animal(){
-	Animal::numOfAnimals++;
-}
+Animal::Animal(){ Animal::numOfAnimals++; }
 
 Animal::Animal(string s){
 	char delemiter = ',';
@@ -490,19 +442,13 @@ __Dog.h__
 ```c++
 #include "Animal.h"
 
-using namespace std;
-
 class Dog: public Animal {
 	private:
 		string sound;
 
 	public:
-		void getClass(){
-			cout << "I'm a Dog" << endl;
-		}
-		void makeSound(){
-			cout << "The Dog says " << this->sound << endl;
-		}
+		void getClass(){ cout << "I'm a Dog" << endl; }
+		void makeSound(){ cout << "The Dog says " << this->sound << endl; }
 
 		Dog() : Animal() {};
 		Dog(int, int, int, string, string);
