@@ -1,6 +1,6 @@
 ###Generel
 ####Variables
-```
+```c++
 // Arrays
 int badNums[5] = {4, 13, 14, 24, 24};
 char myName[4][6] = {{'G','e','r','y'}, {'H','i','r','s','c','h'}}
@@ -14,7 +14,7 @@ double b = stod("4.5");
 ```
 
 ####Headers
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,8 +26,7 @@ using namespace std;
 ```
 
 ####Pointers & References
-
-```
+```c++
 void makeMeYoung(int* age){
  cout << "I use to be " << *age << endl;
  *age = 18;
@@ -61,9 +60,17 @@ int main() {
 	cout << "my age is " << myAge << endl;
 }
 ```
+
+```c++
+const char *cstr = row.c_str();
+for (int i = 0; i < row.length(); i++){
+	writer.put(*(cstr + i));
+}
+```
+
 __Output__
 
-```
+```c++
 Addreess of the pointer: 0x7fff5f2028dc
 Data at memory: 28
 Addreess : 0x7fff5f202900
@@ -78,7 +85,7 @@ my age is 28
 ```
 
 ###Templates
-```
+```c++
 // Old code without the templates
 // void output(int i){ cout << i << endl; }
 // void output(float f){ cout << f << endl; }
@@ -143,7 +150,7 @@ int main() {
 
 ###FileStreams
 #### Generel
-```
+```c++
 // Streams
 // 	Mode Flag	Description
 // ios::app	Append mode. All output to that file to be appended to the end.
@@ -203,7 +210,7 @@ fileLineB.toString();
 ```
 
 ####Random File Access
-```
+```c++
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -258,7 +265,7 @@ int main(){
 
 ###STL
 ####Iterators, list and vectors
-```
+```c++
 #include <vector>
 #include <deque>
 #include <list>
@@ -303,7 +310,7 @@ int main(){
 ####Classes
 __Animal.h__
 
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -374,7 +381,7 @@ class Animal {
 
 __Animal.cpp__
 
-```
+```c++
 #include "Animal.h"
 
 int Animal::numOfAnimals = 0;
@@ -480,7 +487,7 @@ string Animal::toStringArray(){
 
 __Dog.h__
 
-```
+```c++
 #include "Animal.h"
 
 using namespace std;
@@ -506,7 +513,7 @@ class Dog: public Animal {
 
 __Dog.cpp__
 
-```
+```c++
 #include "Dog.h"
 
 Dog::Dog(int height, int weight, int age, string name, string sound) :
@@ -521,10 +528,22 @@ void Dog::toString(){
 }
 ```
 
-__ADSF__
-```
+__main.cpp__
+
+```c++
+Animal a1(35, 13, 2, "tom");
+Animal a2(23, 54, 3, "balou");
+Dog bello(35, 13, 2, "bello", "wuff");
+
+Animal animals[10];
+animals[0] = Animal(35, 13, 2, "tom");
+animals[1] = Animal(23, 54, 3, "balou");
+Animal *ap = animals;
+for (size_t i = 0; i < 10; i++){
+	ap->toString();
+	ap++;
+}
+
 ```
 
-__ADSF__
-```
-```
+
