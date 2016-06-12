@@ -20,10 +20,10 @@ void actYourAge(int& age){
 
 int main() {
     // Arrays
-    // int badNums[5] = {4, 13, 14, 24, 24};
-    // char myName[4][6] = {{'G','e','r','y'}, {'H','i','r','s','c','h'}};
+    int badNums[5] = {4, 13, 14, 24, 24};
+    char myName[4][6] = {{'G','e','r','y'}, {'H','i','r','s','c','h'}};
 
-    // // Typen umwandlung
+    // Typen umwandlung
     // string yourName;
     // getline(cin, yourName);
     // cout << yourName << endl;
@@ -58,26 +58,26 @@ int main() {
 
 
     // Pointers & References
-    // int myAge = 28;
-    // int* agePtr = &myAge;
-    // cout << "Addreess of the pointer: " << agePtr << endl;
-    // cout << "Data at memory: " << *agePtr << endl;
+    int myAge = 28;
+    int* agePtr = &myAge;
+    cout << "Addreess of the pointer: " << agePtr << endl;
+    cout << "Data at memory: " << *agePtr << endl;
 
-    // int* badNumPtr = badNums;
-    // cout << "Addreess : " << badNumPtr << endl;
-    // cout << "Value : " << *badNumPtr << endl;
-    // badNumPtr++;
-    // cout << "Addreess : " << badNumPtr << endl;
-    // cout << "Value : " << *badNumPtr << endl;
+    int* badNumPtr = badNums;
+    cout << "Addreess : " << badNumPtr << endl;
+    cout << "Value : " << *badNumPtr << endl;
+    badNumPtr++;
+    cout << "Addreess : " << badNumPtr << endl;
+    cout << "Value : " << *badNumPtr << endl;
 
-    // makeMeYoung(&myAge);
-    // cout << "Now I am " << *agePtr << endl;
+    makeMeYoung(&myAge);
+    cout << "Now I am " << *agePtr << endl;
 
-    // int& myAgeRef = myAge;
-    // cout << "my age is " << myAge << endl;
-    // myAgeRef++;
-    // cout << "my age is " << myAge << endl;
-    // actYourAge(myAgeRef);
+    int& myAgeRef = myAge;
+    cout << "my age is " << myAge << endl;
+    myAgeRef++;
+    cout << "my age is " << myAge << endl;
+    actYourAge(myAgeRef);
     cout << "my age is " << myAge << endl;
 
 
