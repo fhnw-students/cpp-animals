@@ -11,6 +11,32 @@ getline(cin, yourName);
 cout << yourName << endl;
 int a = stoi("4");
 double b = stod("4.5");
+
+// has a function-pointer as parameter
+
+void quickSort(T* a, int start, int end, int (*cmp)(T, T)){...}
+```
+
+####Function as parameter or as Lambda
+```c++
+// declare type for fraction comparing function
+typedef int (*fractionComparator)(Fraction, Fraction);  
+// prototype for our comparator function 
+int compareFractions(Fraction a, Fraction b);           
+void quickSort(T* a, int start, int end, fractionComparator cmp){...} 
+```
+
+```c++
+class FractionComparator{  // this is the functor for compare Fractions
+  public:
+    int operator()(Fraction a, Fraction b){...}
+};
+
+template<typename T> void quickSort(T*, int, int, function<int(T, T)>);
+```
+
+```c++
+function<int(Fraction, Fraction)> comparator = [] (Fraction a, Fraction b) {...};  // make a function-object by a lambda expression
 ```
 
 ####Headers
@@ -274,7 +300,14 @@ int main(){
 }
 ```
 
-####Classes
+###Lamdas
+```c++
+int limit = 1200;cout << count_if(begin(v), end(v), [limit](int i) {return i < limit;});
+```
+
+
+
+###Classes
 __Animal.h__
 
 ```c++
